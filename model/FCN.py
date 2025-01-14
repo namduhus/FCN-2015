@@ -4,6 +4,9 @@
 import torch
 import torch.nn as nn
 import torchvision.models as models
+from torchvision.models import VGG16_Weights
+
+
 ###################################
 
 ##############FCN##################
@@ -13,7 +16,7 @@ class FCN(nn.Module):
 
 
         ## Pretrain VGG16
-        vgg = models.vgg16(pretrained=True)
+        vgg = models.vgg16(weights=VGG16_Weights.IMAGENET1K_V1)
         features = list(vgg.features.children()) # VGG16의 Conv레이어 가져오기
         # features: Conv Layer + MaxPooling Layer(합성곱 기반 특징 추출 부분)
         # classifier: Fully Connected Layer(완전 연결 기반 분류 부분)
@@ -67,16 +70,17 @@ class FCN(nn.Module):
         x = self.upconv2(x)   # 2nd UpSampling
         x = self.upconv3(x)   # last UpSampling
         return x
-# Test
-# num_classes = 21
-# model = FCN(num_classes=num_classes)
+# # Test
+# if __name__ == "__main__":
+#     # 테스트용 입력 이미지
+#     num_classes = 21
+#     model = FCN(num_classes=num_classes)
 #
-# device = torch.device("cuda"if torch.cuda.is_available() else "cpu")
-# model.to(device)
+#     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+#     model.to(device)
 #
-# input_tensor = torch.randn(1, 3, 224, 224).to(device)
+#     input_tensor = torch.randn(1, 3, 224, 224).to(device)
+#     output_tensor = model(input_tensor)
 #
-# output_tensor = model(input_tensor)
-#
-# print(f"입력 크기: {input_tensor.shape}")
-# print(f"출력 크기: {output_tensor.shape}")
+#     print(f"입력 크기: {input_tensor.shape}")
+#     print(f"출력 크기: {output_tensor.shape}")
