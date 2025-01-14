@@ -8,7 +8,7 @@ import torchvision.models as models
 
 ##############FCN##################
 class FCN(nn.Module):
-    def __init__(self, num_classes):
+    def __init__(self, num_classes=21):
         super(FCN, self).__init__()
 
 
