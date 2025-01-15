@@ -12,7 +12,7 @@ from torchvision.models import VGG16_Weights, vgg16
 
 ##############FCN##################
 class FCN(nn.Module):
-    def __init__(self, num_classes=21, mode="32s"):
+    def __init__(self, num_classes=21, mode="8s"):
         super(FCN, self).__init__()
         self.mode = mode
 
