@@ -1,7 +1,7 @@
 # FCN(2015) PyTorch 논문구현
 ## 구조
-model - FCN.py(16s, 8s)
-train - main.ipynb(train/validation/Inference)
+* model - FCN.py(16s, 8s)
+* train - main.ipynb(train/validation/Inference)
 
 ## 회고
 * 논문을 보고 FCN구조를 코드로 작성해보았습니다.
