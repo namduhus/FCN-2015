@@ -1,4 +1,5 @@
 # FCN(2015) PyTorch 논문구현
+https://arxiv.org/pdf/1411.4038
 ## 구조
 * model - FCN.py(16s, 8s)
 * train - main.ipynb(train/validation/Inference)
